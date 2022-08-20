@@ -90,14 +90,20 @@ include_once('../include/dbConn.inc.php');
                             <td scope="col">' . $row['date'] . '</td>
                             ';
                         if ($row['status'] == 0) {
-                            echo '<td scope="col" class="text-danger">Pending</td>';
+                            echo '<td scope="col" class="text-danger">Pending</td>
+  
+                            <td scope="col"><button class="btn btn-success disabled">Ticket</button></td>
+                            </tr>
+                            ';
                         } else {
-                            echo '<td scope="col" class="text-success">Verified</td>';
-                        }
-                        echo '
-                        <td scope="col"><a href="../include/deleteBook.inc.php?id=' . $row['bid'] . '" class="btn btn-danger">Delete</a></td>
-                        </tr>
+                            echo '<td scope="col" class="text-success">Verified</td>
+                            <td scope="col"><a href="./ticket.php?id=' . $row['bid'] . '" class="btn btn-success">Ticket</a></td>
+                             </tr>
                         ';
+                        }
+                        if ($row['status'] == 1) {
+                        } else {
+                        }
                         $sn = $sn + 1;
                     }
                 } else {

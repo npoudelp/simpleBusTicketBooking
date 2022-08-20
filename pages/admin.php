@@ -73,6 +73,7 @@ include_once('../include/dbConn.inc.php');
                         <th scope="col">Seat Number</th>
                         <th scope="col">Bus Number</th>
                         <th scope="col">Date</th>
+                        <th scope="col">Action</th>                        
                     </tr>
                 </thead>
                 <?php

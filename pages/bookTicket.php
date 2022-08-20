@@ -4,7 +4,6 @@ if (isset($_REQUEST['msg'])) {
     $msg = $_REQUEST['msg'];
 }
 
-
 session_start();
 if ($_SESSION['logged'] != 'true') {
     header("location: ./login.php");
@@ -15,6 +14,7 @@ include_once('../include/dbConn.inc.php');
 $sql = "SELECT * FROM route;";
 $res = mysqli_query($conn, $sql);
 
+$seatNo = array();
 
 
 ?>
@@ -37,7 +37,7 @@ $res = mysqli_query($conn, $sql);
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="./profile.php">dTicket</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -97,35 +97,40 @@ $res = mysqli_query($conn, $sql);
                                         <?php
                                         $sql1 = "SELECT * FROM book WHERE rid=$rid AND date='$date';";
                                         $res1 = mysqli_query($conn, $sql1);
-                                        for ($i = 1; $i < 33; $i++) {
-                                            if (mysqli_num_rows($res1) > 0) {
-                                                while ($row1 = mysqli_fetch_assoc($res1)) {
 
-
-                                                    if ($row1['seatNo'] == $i) {
+                                        if (mysqli_num_rows($res1) > 0) {
+                                            while ($row1 = mysqli_fetch_assoc($res1)) {
+                                                array_push($seatNo, $row1['seatNo']);
+                                            }
+                                            for ($i = 1; $i < 33; $i++) {
+                                                for ($j = 0; $j < sizeof($seatNo); $j++) {
+                                                    if ($i == $seatNo[$j]) {
                                                         echo '
-                                                            <div class="col-3 p-2">
-                                                            <button class="btn btn-danger disabled">
-                                                            <i class=" display-3 bi bi-tv-fill"></i></button>
+                                                             <div class="col-3 p-2">
+                                                             <button class="btn btn-danger disabled">
+                                                             <i class=" display-3 bi bi-tv-fill"></i></button>
+                                                             </div>';
+                                                             break;
+                                                    }
+                                                    $arrayEnd = sizeof($seatNo)-1;
+                                                    if ($j == $arrayEnd && $i != $seatNo[$j]) {
+                                                        echo '
+                                                          <div class="col-3 p-2">
+                                                            <a href="../include/book.inc.php?rid=' . $rid . '&date=' . $date . '&seat=' . $i . '" class="btn btn-success">
+                                                         <i class=" display-3 bi bi-tv-fill"></i></a>
                                                             </div>';
-                                                    } else {
-                                                
-                                                        echo '
-                                                        <div class="col-3 p-2">
-                                                        <a href="../include/book.inc.php?rid=' . $rid . '&date=' . $date . '&seat=' . $i . '" class="btn btn-success">
-                                                        <i class=" display-3 bi bi-tv-fill"></i></a>
-                                                        </div>';
                                                     }
                                                 }
-                                            } else {
+                                            }
+                                        } else {
+                                            for ($i = 1; $i < 33; $i++) {
                                                 echo '
-                                                        <div class="col-3 p-2">
-                                                        <a href="../include/book.inc.php?rid=' . $rid . '&date=' . $date . '&seat=' . $i . '" class="btn btn-success">
-                                                        <i class=" display-3 bi bi-tv-fill"></i></a>
+                                                       <div class="col-3 p-2">
+                                                         <a href="../include/book.inc.php?rid=' . $rid . '&date=' . $date . '&seat=' . $i . '" class="btn btn-success">
+                                                      <i class=" display-3 bi bi-tv-fill"></i></a>
                                                         </div>';
                                             }
                                         }
-
                                         ?>
                                     </div>
                                 </div>
