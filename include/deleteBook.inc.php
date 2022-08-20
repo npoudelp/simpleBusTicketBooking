@@ -13,18 +13,6 @@ if (isset($_REQUEST['bid'])) {
         header('location:../pages/admin.php?msg=failed');
     }
 }
-
-if (isset($_REQUEST['id'])) {
-    $bid = $_REQUEST['id'];
-
-
-
-    $sql = "DELETE FROM book WHERE bid=$bid;";
-
-    $res = mysqli_query($conn, $sql);
-    if ($res) {
-        header('location:../pages/profile.php?msg=success');
-    } else {
-        header('location:../pages/profile.php?msg=failed');
-    }
+else{
+    header('location:../pages/login.php');
 }
