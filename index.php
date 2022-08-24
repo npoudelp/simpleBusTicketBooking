@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script src="./js/bootstrap.min.js"></script>
 
-    <title>dTicket</title>
+    <title>yesTicket</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand text-success" href="./index.php">dTicket</a>
+            <a class="navbar-brand text-success" href="./index.php">yesTicket</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6">
                     <p class="display-1 text-center text-success align-middle border-bottom">
-                        dTicket
+                        yesTicket
                     </p><br>
                     <p class="h3 lead text-success diabled text-center">Your Ticket Booking Partner</p>
                 </div>
