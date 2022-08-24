@@ -1,3 +1,12 @@
+<?php 
+$err = "";
+include_once("./include/dbConn.inc.php");
+if(!$conn){
+    $err = "An internal error occured, please report the incident to the site admin.";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +58,10 @@
         </div>
     </section>
     <!-- Bus image endes -->
+
+<br>
+<p class="lead text-danger"><?php echo $err; ?></p>
+<br>
 
     <!-- Promotion starts here -->
     <section class="lead p-5">
