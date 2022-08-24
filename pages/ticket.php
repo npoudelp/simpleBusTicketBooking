@@ -24,7 +24,7 @@ if (isset($_REQUEST['id']) == 28) {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
 
-    <title>dTicket</title>
+    <title>yesTicket</title>
 
     <style>
         @media print {
@@ -38,7 +38,7 @@ if (isset($_REQUEST['id']) == 28) {
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light toHide">
         <div class="container">
-            <a class="navbar-brand" href="./profile.php">dTicket</a>
+            <a class="navbar-brand" href="./profile.php">yesTicket</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -78,7 +78,7 @@ if (isset($_REQUEST['id']) == 28) {
 
                 <div class="py-2 row border-bottom">
                     <div class="py-2 col-12">
-                        <span class="py-2  h1">Travel Ticket</span> <span class="py-2 lead"> _Booked from dTicket</span>
+                        <span class="py-2  h1">Travel Ticket</span> <span class="py-2 lead"> _Booked from yesTicket</span>
                     </div>
                 </div>
                 <div class="py-2 row">

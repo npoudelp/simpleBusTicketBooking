@@ -30,13 +30,13 @@ $seatNo = array();
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
 
-    <title>dTicket</title>
+    <title>yesTicket</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="./profile.php">dTicket</a>
+            <a class="navbar-brand" href="./profile.php">yesTicket</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -64,7 +64,7 @@ $seatNo = array();
             <div class="container">
                 <form method="POST" action="#">
                     <div class="form-group">
-                        <select name="rid" class="form-control" id="rid">
+                        <select name="rid" required class="form-control" id="rid">
                             <?php
                             while ($row = mysqli_fetch_assoc($res)) {
                                 echo "<option value='" . $row['rid'] . "'>" . $row['initial'] . " to " . $row['final'] . " For Rs: " . $row['rate'] . "</option>";
@@ -77,7 +77,7 @@ $seatNo = array();
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Date</label>
-                        <input type="date" name="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
+                        <input type="date" name="date" required class="form-control" id="exampleFormControlInput1" placeholder="date">
                     </div><br>
                     <div class="form-group">
                         <input type="submit" name="submit" class="btn btn-success">

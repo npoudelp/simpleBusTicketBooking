@@ -23,13 +23,13 @@ include_once('../include/dbConn.inc.php');
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
 
-    <title>dTicket</title>
+    <title>yesTicket</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="./admin.php">dTicket</a>
+            <a class="navbar-brand" href="./admin.php">yesTicket</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

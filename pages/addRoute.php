@@ -3,6 +3,10 @@ session_start();
 if ($_SESSION['logged'] != 'true') {
     header("location: ./login.php");
 }
+$msg = "";
+if (isset($_REQUEST['msg'])) {
+    $msg = $_REQUEST['msg'];
+}
 
 ?>
 
@@ -17,13 +21,13 @@ if ($_SESSION['logged'] != 'true') {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
 
-    <title>dTicket</title>
+    <title>yesTicket</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="./admin.php">dTicket</a>
+            <a class="navbar-brand" href="./admin.php">yesTicket</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -38,7 +42,7 @@ if ($_SESSION['logged'] != 'true') {
                     <li class="nav-item">
                         <a class="nav-link" href="../include/logout.inc.php"><span class="btn btn-success">Log Out</span></a>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -46,6 +50,9 @@ if ($_SESSION['logged'] != 'true') {
 
     <section class="lead text-dark">
         <div class="container">
+            <br>
+            <p class="lead text-center text-danger"><?php echo $msg; ?></p>
+            <br>
             <form method="POST" action="../include/addRoute.inc.php">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">From</label>
