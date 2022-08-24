@@ -1,7 +1,8 @@
 <?php
 if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
+
 
     include_once('./dbConn.inc.php');
 
@@ -16,12 +17,10 @@ if (isset($_POST['submit'])) {
                 $_SESSION['logged'] = 'true';
                 $_SESSION['uid'] = $row['uid'];
                 if ($row['type'] == 'admin') {
-                    header("location: ../pages/admin.php?q=".$row['name']);
+                    header("location: ../pages/admin.php?q=" . $row['name']);
                 } else {
-                    header("location: ../pages/profile.php?q=".$row['name']);
+                    header("location: ../pages/profile.php?q=" . $row['name']);
                 }
-            } else {
-                header("location: ../pages/login.php?msg=failed");
             }
         }
     } else {

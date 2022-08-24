@@ -3,8 +3,9 @@ if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
-    $password = $_POST['password'];
-    $passwordR = $_POST['passwordR'];
+    $password = md5($_POST['password']);
+    $passwordR = md5($_POST['passwordR']);
+    
     $type = 'users';
     if ($password != $passwordR) {
         header("location: ../pages/signup.php?msg=failed");
